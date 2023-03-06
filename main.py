@@ -64,8 +64,10 @@ def main():
             case 2:
                 print("Enter user id to delete: ")
                 user_id = int(input())
-                #Se o utilizador n existir
-                users.pop(user_id)
+                if userExists(user_id, users) == True:
+                    users.pop(user_id)
+                else:
+                    print("User does not exist")
                 print(menu())
                 choice = int(input("Enter your choice: "))
             case 3:
@@ -75,9 +77,12 @@ def main():
             case 4:
                 print("Enter user id: ")
                 user_id = int(input())
-                list = highestGenre(user_id, users)
-                print(list)
-                recomendation(list,genre)
+                if userExists(user_id, users) == True:
+                    list = highestGenre(user_id, users)
+                    print(list)
+                    recomendation(list,genre)
+                else:
+                    print("User does not exist")
                 print(menu())
                 choice = int(input("Enter your choice: "))
             case _:
