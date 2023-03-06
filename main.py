@@ -1,6 +1,8 @@
 import openai as ai
 
-ai.api_key = input(print("Insert your OpenAI API key"))
+print("Welcome to the movie recommender system")
+print("To generate your OpenAI API key, go to https://platform.openai.com")
+ai.api_key = input("Insert your OpenAI API key")
 
 #Action, Adventure, Comedy, Drama, Horror, Mystery, and Romance
 users = {1: [5,3,5,2,4,3,3], 2: [3,3,4,5,3,2,5], 3: [4,4,5,5,2,2,3]}
@@ -47,7 +49,7 @@ def main():
 
     genre = ["Action", "Adventure", "Comedy", "Drama", "Horror", "Mystery", "Romance"]
 
-    print(menu())
+    menu()
     choice = int(input("Enter your choice: "))
     while choice != 5:
         match choice:
@@ -59,7 +61,7 @@ def main():
                         print("Invalid rating")
                         ratings[i] = int(input("Enter rating for genre "+ genre[i] + ":"))
                 add_user(user_id,ratings,users)
-                print(menu())
+                menu()
                 choice = int(input("Enter your choice: "))
             case 2:
                 print("Enter user id to delete: ")
@@ -68,11 +70,11 @@ def main():
                     users.pop(user_id)
                 else:
                     print("User does not exist")
-                print(menu())
+                menu()
                 choice = int(input("Enter your choice: "))
             case 3:
                 print("Users: ", users)
-                print(menu())
+                menu()
                 choice = int(input("Enter your choice: "))
             case 4:
                 print("Enter user id: ")
@@ -83,11 +85,11 @@ def main():
                     recomendation(list,genre)
                 else:
                     print("User does not exist")
-                print(menu())
+                menu()
                 choice = int(input("Enter your choice: "))
             case _:
                 print("Invalid choice")
-                print(menu())
+                menu()
                 choice = int(input("Enter your choice: "))
 
 main()
