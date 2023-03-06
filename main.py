@@ -1,6 +1,6 @@
 import openai as ai
 
-ai.api_key = "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"
+ai.api_key = input(print("Insert your OpenAI API key"))
 
 #Action, Adventure, Comedy, Drama, Horror, Mystery, and Romance
 users = {1: [5,3,5,2,4,3,3], 2: [3,3,4,5,3,2,5], 3: [4,4,5,5,2,2,3]}
@@ -42,7 +42,7 @@ def recomendation(list,genre):
         response = ai.Completion.create(engine="text-davinci-002",prompt= prompt,max_tokens=100,n=1,stop=None,temperature=0.5,)
         print(response.choices[0].text)
 def main():
-    user_id = 3
+    user_id = 3 #Already 3 users in the dictionary
     ratings = [0, 0, 0, 0, 0, 0, 0]
 
     genre = ["Action", "Adventure", "Comedy", "Drama", "Horror", "Mystery", "Romance"]
