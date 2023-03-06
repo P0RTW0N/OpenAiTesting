@@ -41,7 +41,7 @@ def recomendation(list,genre):
     for i in range (0,len(list)):
         print(genre[list[i]] + " movies:")
         prompt = "Recommend 3 movies in the genre of"+ genre[list[i]]
-        response = ai.Completion.create(engine="text-davinci-002",prompt= prompt,max_tokens=100,n=1,stop=None,temperature=0.5,)
+        response = ai.Completion.create(engine="text-davinci-003",prompt= prompt,max_tokens=100,n=1,stop=None,temperature=0.5,)
         print(response.choices[0].text)
 def main():
     user_id = 3 #Already 3 users in the dictionary
